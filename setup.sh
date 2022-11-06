@@ -1,3 +1,6 @@
+sudo apt update
+sudo apt upgrade -y
+
 # ZSH
 if [ "$NO_ZSH" != "true" ]; then
   # switch to zsh
