@@ -19,11 +19,6 @@ export NVM_DIR="$HOME/.nvm"
 # Add Cargo to Path
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -91,6 +86,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+eval $(thefuck --alias)
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -103,6 +100,8 @@ git autoupdate zsh-nvm zsh-autosuggestions copyfile zsh-syntax-highlighting json
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# Regular updates
+zstyle ':omz:update' mode auto
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -140,8 +139,7 @@ alias cdd='cd ~/dev'
 
 
 neofetch
+echo "🚀 Blastoff!"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-eval $(thefuck --alias)alias config='/usr/bin/git --git-dir=/home/jon/.cfg/ --work-tree=/home/jon'
