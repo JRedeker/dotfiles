@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "updating and upgrading apt packages..."
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt autoremove -y
 sudo apt autoclean -y
 
@@ -16,8 +16,8 @@ nvm use --lts
 
 #NPM
 echo "Updating npm..."
-npm install -g npm@latest
-npm update -g
+npm install -g npm@latest -y
+npm update -g -y
 
 
 #Pyenv & Python
@@ -32,16 +32,4 @@ pip install --upgrade pip
 pipupdate=$(pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U )
 echo pipupdate
 
-echo '''
-  /$$$$$$  /$$ /$$       /$$   /$$                 /$$             /$$                     /$$
- /$$__  $$| $$| $$      | $$  | $$                | $$            | $$                    | $$
-| $$  \ $$| $$| $$      | $$  | $$  /$$$$$$   /$$$$$$$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$$
-| $$$$$$$$| $$| $$      | $$  | $$ /$$__  $$ /$$__  $$ |____  $$|_  $$_/   /$$__  $$ /$$__  $$
-| $$__  $$| $$| $$      | $$  | $$| $$  \ $$| $$  | $$  /$$$$$$$  | $$    | $$$$$$$$| $$  | $$
-| $$  | $$| $$| $$      | $$  | $$| $$  | $$| $$  | $$ /$$__  $$  | $$ /$$| $$_____/| $$  | $$
-| $$  | $$| $$| $$      |  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$  |  $$$$/|  $$$$$$$|  $$$$$$$
-|__/  |__/|__/|__/       \______/ | $$____/  \_______/ \_______/   \___/   \_______/ \_______/
-                                  | $$                                                        .
-                                  | $$                                                        .
-                                  |__/                                                        .
-'''
+echo "All Updated"
