@@ -1,3 +1,7 @@
+# This is to be run ONCE after a new linux box is set up.
+# Additional setup will be needed to have all user vars set and keys generated
+
+
 sudo apt update
 sudo apt upgrade -y
 
@@ -18,6 +22,8 @@ if [ "$NO_ZSH" != "true" ]; then
   # install plugins
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   echo "plugins+=zsh-autosuggestions" >>~/.zshrc
+  git clone git clone https://github.com/ptavares/zsh-direnv.git ${ZSH_CUSTOM: ~/.oh-my-zsh/custom}/plugins/zsh-direnv
+  echo "plugins+=(zsh-direnv)" >>~/.zshrc
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   echo "plugins+=zsh-syntax-highlighting" >>~/.zshrc
   git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
@@ -28,6 +34,11 @@ if [ "$NO_ZSH" != "true" ]; then
   #curl -fsSL https://raw.githubusercontent.com/DRSchlaubi/.gitpod/main/.p10k.zsh -o ~/.p10k.zsh
   echo ZSH_THEME="powerlevel10k/powerlevel10k" >>~/.zshrc
 
+  # install direnv
+  curl -sfL https://direnv.net/install.sh | bash
+
   # reload oh-my-zsh instructions again
   echo "source \$ZSH/oh-my-zsh.sh" >>~/.zshrc
+
+
 fi
