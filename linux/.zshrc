@@ -7,6 +7,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Import and Enable autosuggestions and autocorrect
+export ZSH_C_Plugins="$HOME/.oh-my-zsh/custom/plugins"
+
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -42,15 +45,15 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 1
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -82,6 +85,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
+# Import ZSH autocomplete and autosuggestions
+
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -94,7 +99,7 @@ eval $(thefuck --alias)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git autoupdate zsh-nvm zsh-autosuggestions copyfile zsh-syntax-highlighting jsontools helm pip pipenv colorize thefuck zsh-pyenv
+git zsh-autocomplete autoupdate zsh-nvm zsh-autosuggestions copyfile zsh-syntax-highlighting jsontools helm pip pipenv colorize thefuck zsh-pyenv zsh-direnv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -136,7 +141,7 @@ alias lla='ls -la'
 alias lt='ls --tree'
 alias cdh='cd ~'
 alias cdd='cd ~/dev'
-
+alias cdw='cd ~/work'
 
 neofetch
 echo "🚀 Blastoff!"
