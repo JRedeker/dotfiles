@@ -23,13 +23,10 @@ npm update -g -y
 #Pyenv & Python
 echo "Upgrading Python..."
 pyenv update
-pyenv latest install -n
-pyenv latest global
+pyenv install latest
+pyenv global latest
 
 #PIP
 echo "Updating PIP..."
 pip install --upgrade pip
-pipupdate=$(pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U )
-echo pipupdate
 
-echo "All Updated"
